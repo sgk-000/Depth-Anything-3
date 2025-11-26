@@ -7,43 +7,42 @@ name = "depth-anything-3"
 version = "0.0.0"
 description = "Depth Anything 3"
 readme = "README.md"
-requires-python = ">=3.9, <=3.13"
+requires-python = ">=3.10, <=3.13"
 license = { text = "Apache-2.0" }
 authors = [{ name = "Your Name" }]
 
 dependencies = [
-    "pre-commit",
-    "trimesh",
-    "torch>=2",
-    "torchvision",
-    "einops",
-    "huggingface_hub",
-    "imageio",
-    "numpy<2",
-    "opencv-python",
-    "xformers",
-    "open3d",
-    "fastapi",
-    "uvicorn",
-    "requests",
-    "typer",
-    "pillow",
-    "omegaconf",
-    "evo",
-    "e3nn",
-    "moviepy",
-    "plyfile",
-    "pillow_heif",
-    "safetensors",
-    "uvicorn",
-    "moviepy==1.0.3",
-    "typer>=0.9.0",
-    "pycolmap",
+  "pre-commit",
+  "trimesh",
+  "torch>=2",
+  "torchvision",
+  "einops",
+  "huggingface_hub",
+  "imageio",
+  "numpy<2",
+  "opencv-python",
+  "xformers>=0.0.23.post1",
+  "open3d",
+  "fastapi",
+  "uvicorn",
+  "requests",
+  "typer>=0.9.0",
+  "pillow",
+  "omegaconf",
+  "evo",
+  "e3nn",
+  "plyfile",
+  "pillow_heif",
+  "safetensors",
+  "moviepy==1.0.3",
+  "pycolmap",
 ]
 
 [project.optional-dependencies]
 app = ["gradio>=5", "pillow>=9.0"] # requires that python3>=3.10
-gs = ["gsplat @ git+https://github.com/nerfstudio-project/gsplat.git@0b4dddf04cb687367602c01196913cde6a743d70"]
+gs = [
+  "gsplat @ git+https://github.com/nerfstudio-project/gsplat.git@0b4dddf04cb687367602c01196913cde6a743d70",
+]
 all = ["depth-anything-3[app,gs]"]
 
 
@@ -60,14 +59,14 @@ source = "vcs"
 packages = ["src/depth_anything_3"]
 
 [tool.hatch.build.targets.sdist]
-include = [
-  "/README.md",
-  "/pyproject.toml",
-  "/src/depth_anything_3",
-]
+include = ["/README.md", "/pyproject.toml", "/src/depth_anything_3"]
 
 [tool.hatch.metadata]
 allow-direct-references = true
+
+[tool.uv.extra-build-dependencies]
+gsplat = ["torch"]
+xformers = ["torch"]
 
 [tool.mypy]
 plugins = ["jaxtyping.mypy_plugin"]
@@ -86,9 +85,21 @@ exclude = '''
 profile = "black"
 multi_line_output = 3
 include_trailing_comma = true
-known_third_party = ["bson","cruise","cv2","dataloader","diffusers","omegaconf","tensorflow","torch","torchvision","transformers","gsplat"]
+known_third_party = [
+  "bson",
+  "cruise",
+  "cv2",
+  "dataloader",
+  "diffusers",
+  "omegaconf",
+  "tensorflow",
+  "torch",
+  "torchvision",
+  "transformers",
+  "gsplat",
+]
 known_first_party = ["common", "data", "models", "projects"]
-sections = ["FUTURE","STDLIB","THIRDPARTY","FIRSTPARTY","LOCALFOLDER"]
+sections = ["FUTURE", "STDLIB", "THIRDPARTY", "FIRSTPARTY", "LOCALFOLDER"]
 skip_gitignore = true
 line_length = 99
-no_lines_before="THIRDPARTY"
+no_lines_before = "THIRDPARTY"
