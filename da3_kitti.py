@@ -6,11 +6,12 @@ import numpy as np
 import pandas as pd
 import cv2
 
-GPU_ID = 0
+GPU_ID = 1
 NUM_IMAGES = 100 # They used 100 images for pose estimation in the paper
 LONG_EDGE = 720 # num_images=100
 # LONG_EDGE = 930 # num_images=lower than 75
 # LONG_EDGE = 504 # num_images=300
+# LONG_EDGE = 1224 # num_images=30
 
 def parse_kitti_intrinsics(scene) -> np.ndarray:
     drive_with_num = Path(scene).stem
