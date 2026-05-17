@@ -14,7 +14,7 @@ from depth_anything_3.api import DepthAnything3
 # num_image=250 -> long_edge=550
 # num_image=200 -> long_edge=630
 # num_image=175 -> long_edge=690
-# num_image=150 -> long_edge=660
+# num_image=150 -> long_edge=730
 # num_image=100 -> long_edge=720
 # num_image=75 -> long_edge=850
 # num_image=30 -> long_edge=1224
@@ -55,7 +55,7 @@ def parse_args() -> argparse.Namespace:
         choices=SUPPORTED_CAMERAS,
         help="Camera folders to process.",
     )
-    parser.add_argument("--gpu-id", type=int, default=0, help="CUDA device index.")
+    parser.add_argument("--gpu-id", type=int, default=1, help="CUDA device index.")
     parser.add_argument(
         "--num-images",
         type=int,

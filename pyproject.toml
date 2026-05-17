@@ -36,6 +36,8 @@ dependencies = [
   "safetensors",
   "moviepy==1.0.3",
   "pycolmap",
+  "jaxtyping>=0.3.3",
+  "kornia>=0.8.2",
 ]
 
 [project.optional-dependencies]
